@@ -11,11 +11,14 @@ let package = Package(
             name: "FAA-geodesic",
             targets: ["FAA-geodesic"]),
     ],
+    dependencies: [.package(url: "https://github.com/bitwise-aviator/Geodesic", branch: "universal-changes")],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "FAA-geodesic"),
+            name: "FAA-geodesic",
+            dependencies: ["Geodesic"]
+        ),
         .testTarget(
             name: "FAA-geodesicTests",
             dependencies: ["FAA-geodesic"]),

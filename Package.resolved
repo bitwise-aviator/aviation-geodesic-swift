@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "cgeodesic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sbooth/CGeodesic",
+      "state" : {
+        "revision" : "21e5af22a355289ddb049b303fb4a04b33b6de79",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "geodesic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bitwise-aviator/Geodesic",
+      "state" : {
+        "branch" : "universal-changes",
+        "revision" : "468dc6d7ed67fe6e5a8f7a7f43fd758c53f8d9f9"
+      }
+    }
+  ],
+  "version" : 2
+}
