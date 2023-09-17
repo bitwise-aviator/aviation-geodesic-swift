@@ -8,16 +8,6 @@
 import Foundation
 import Geodesic
 
-enum GeodesicError {
-    case didNotConverge
-    case isCollinear
-}
-
-enum IntersectionOutput {
-    case success(IntersectionResult)
-    case failed(GeodesicError)
-}
-
 struct IntersectionResult {
     let intersection: LatLonPoint
     let input1: LatLonPoint
@@ -49,8 +39,14 @@ struct IntersectionResult {
 }
 
 extension LLPoint {
-    func get_intersection(azimuth a13: Double, point2 p2: any LLPoint, azimuth2 a23: Double) -> IntersectionOutput {
+    func getIntersection(azimuth a13: Double, point2 p2: any LLPoint, azimuth2 a23: Double) throws -> IntersectionResult {
         // Placeholder.
-        return IntersectionOutput.failed(.didNotConverge)
+        let p1 = self
+        // (1) Collinearity check.
+        var (s12, crs12, crs21) = p1.inverse(p2: p2)
+        print(s12, crs12, crs21)
+        
+        
+        throw GeodesicError.didNotConverge
     }
 }
