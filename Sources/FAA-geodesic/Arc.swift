@@ -9,12 +9,12 @@ import Foundation
 import Geodesic
 
 public struct Arc {
-    let center: any LLPoint
-    let radius: Meters
-    let isFullCircle: Bool
-    let startingRadial: Degrees?
-    let endingRadial: Degrees?
-    let arcDirection: ArcDirection?
+    public let center: any LLPoint
+    public let radius: Meters
+    public let isFullCircle: Bool
+    public let startingRadial: Degrees?
+    public let endingRadial: Degrees?
+    public let arcDirection: ArcDirection?
     
     public init(center: any LLPoint, radius: Meters) {
         self.center = center
@@ -34,7 +34,7 @@ public struct Arc {
         isFullCircle = false
     }
     
-    func containsAzimuth(_ azimuth: Degrees) -> Bool {
+    public func containsAzimuth(_ azimuth: Degrees) -> Bool {
         if isFullCircle {
             return true
         }
@@ -50,11 +50,11 @@ public struct Arc {
         }
     }
     
-    func pointAtAzimuth(_ azimuth: Degrees) -> LatLonPoint {
+    public func pointAtAzimuth(_ azimuth: Degrees) -> LatLonPoint {
         self.center.coordinate(atAzimuth: azimuth, distance: self.radius)
     }
     
-    func includesPoint(_ point: any LLPoint) -> Bool {
+    public func includesPoint(_ point: any LLPoint) -> Bool {
         guard abs(self.center.distanceTo(point) - self.radius) <= .distanceTolerance else {
             return false
         }

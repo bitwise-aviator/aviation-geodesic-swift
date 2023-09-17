@@ -8,7 +8,7 @@
 import Foundation
 import Geodesic
 
-extension Arc {
+public extension Arc {
     func intersectionsWith(arc arc2: Arc) throws -> [LatLonPoint] {
         let (dist12, crs12, _) = self.center.distanceAndCoursesTo(arc2.center)
         if self.center.coincidesWith(arc2.center) {
@@ -56,9 +56,10 @@ extension Arc {
                 crsArray[1] = crs1x
                 errArray[1] = error
                 
-                guard let crs1x = try? Double.findLinearRoot(values: crsArray, errors: errArray) else {
+                guard let newCrs1x = try? Double.findLinearRoot(values: crsArray, errors: errArray) else {
                     throw MathError.badInput
                 }
+                crs1x = newCrs1x
                 k += 1
             }
             if k > kMax {
@@ -68,6 +69,10 @@ extension Arc {
             //
             k = 0
         }
-        return solutions
+        let filteredSolutions = solutions.filter({ self.includesPoint($0) && arc2.includesPoint($0) })
+        if filteredSolutions.isEmpty {
+            throw GeodesicError.noSolutionsOnArcSection
+        }
+        return filteredSolutions
     }
 }
