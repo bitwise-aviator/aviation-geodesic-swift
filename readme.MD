@@ -15,7 +15,7 @@ These are the functions I have developed so far and those that are pending. I am
 - 3: Signed azimuth difference - **Done**
 - 4: Approximate fixed radius arc length - **Not started**
 
-### Section 3: Useful Functions
+### Section 3: Basic Calculations
 - 1: Linear Root Finder - **Done**
 - 2a: Spherical direction intersection - **Done**
 - 2b: Spherical distance intersection - **Done**
@@ -23,4 +23,5 @@ These are the functions I have developed so far and those that are pending. I am
 - 4: Geodesic oriented at specific angle - **Not started**
 - 5: Determine if point lies on geodesic - **Done**
 - 6: Determine if point lies on arc - **Done**
+
 ... to be continued.
