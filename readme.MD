@@ -1,3 +1,8 @@
+![GitHub](https://img.shields.io/github/license/bitwise-aviator/aviation-geodesic-swift)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bitwise-aviator/aviation-geodesic-swift)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/bitwise-aviator/aviation-geodesic-swift/swift.yml)
+
+
 This is a Swift-based interpretation of the U.S. Federal Aviation Administration's **Order 8260.3E: United States Standard for Terminal Instrument Procedures (TERPS)**'s geodesic standard (Appendix F). While most Swift code is intended for Apple/iOS use, this library is intended to function with open-source components (namely, the open-source Foundation package and other libraries) and is not limited to Apple devices.
 
 **This library has not been developed by/with, nor endorsed by the Federal Aviation Administration.**
