@@ -15,6 +15,7 @@ enum GeodesicError: Error {
     case arcContainedByAnother
     case noSolutionsOnArcSection
     case arcsAreConcentric
+    case other
 }
 
 enum GeometryError: Error {

@@ -54,14 +54,28 @@ public extension GeodesicLine {
         }
         var angle1: Degrees = crs12.difference(with: crs13)
         var angle2: Degrees = crs21.difference(with: crs23)
-        // These steps are a bit strange. Will revisit.
+        
+        var (newCrs13, newCrs23) = (crs13, crs23)
         if sin(angle1.rad) * sin(angle2.rad) < 0 {
             if abs(angle1) > abs(angle2) {
                 angle1 = (crs13 + 180) - crs12
+                newCrs13 = crs13 + 180
             } else {
                 angle2 = crs21 - (crs23 + 180)
+                newCrs23 = crs23 + 180
             }
         }
+        var intx: LatLonPoint!
+        do {
+            // Will return a non-nil value, will be safe to unwrap.
+            intx = try sphericalDirectionIntersection(pointA: p1, pointB: p2, bearingAC: newCrs13, bearingBC: newCrs23)
+        } catch {
+            // If intx is unassigned, function will be exited safely. No chance of nil value after closing do block.
+            throw error
+        }
+        
+        // IterateLineIntersection subfunction starts.
+        
         
         
         
