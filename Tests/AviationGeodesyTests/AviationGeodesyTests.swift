@@ -1,8 +1,8 @@
 import XCTest
-@testable import FAA_geodesic
+@testable import AviationGeodesy
 import Geodesic
 
-final class FAA_geodesicTests: XCTestCase {
+final class AviationGeodesyTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
