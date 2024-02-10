@@ -21,6 +21,10 @@ public enum ArcDirection {
     case clockWise, counterClockWise
 }
 
+struct InverseResult {
+    
+}
+
 extension Double {
     // WGS-84 ellipsoid constants (Karney, 2013)
     static let a: Meters = 6_378_137.0
@@ -86,7 +90,6 @@ extension Degrees {
             while diff >= 180 {
                 diff -= 360
             }
-            return diff
         case .left:
             // Will return in range (-360, 0]
             while diff <= -360 {
@@ -95,7 +98,6 @@ extension Degrees {
             while diff > 0 {
                 diff -= 360
             }
-            return diff
         case .right:
             // Will return in range [0, +360)
             while diff < 0 {
@@ -104,8 +106,8 @@ extension Degrees {
             while diff >= 360 {
                 diff -= 360
             }
-            return diff
         }
+        return diff
     }
 }
 
@@ -115,7 +117,8 @@ extension Radians {
     }
 }
 
-extension LLPoint {
+
+public extension LLPoint {
     /// Shorthand, customized method to call the inverse function.
     /// - Parameters:
     ///   - p2: The destination point (Point 2).

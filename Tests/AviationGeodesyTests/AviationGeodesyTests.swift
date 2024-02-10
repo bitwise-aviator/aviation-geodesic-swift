@@ -44,4 +44,17 @@ final class AviationGeodesyTests: XCTestCase {
             print("Error: \(error)")
         }
     }
+    
+    func testIntersection() throws {
+        Geodesic.useCompassAzimuths = true
+        let l1 = GeodesicLine(from: LatLonPoint(latitude: 33, longitude: -82), along: 68.36)!
+        let l2 = GeodesicLine(from: LatLonPoint(latitude: 34, longitude: -83), along: 111.29)!
+        guard let res = try? l1.getIntersection(with: l2) else {
+            print("nil")
+            return
+        }
+        print(res.intersection)
+        print(res.a13, res.a23)
+        
+    }
 }
