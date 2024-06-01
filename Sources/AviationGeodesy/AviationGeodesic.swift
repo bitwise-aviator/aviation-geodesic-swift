@@ -59,7 +59,7 @@ extension Degrees {
         return self * .pi / 180
     }
     
-    var inCompassForm: Double {
+    public var inCompassForm: Double {
         var deg = self
         while deg < 0 {
             deg += 360
@@ -67,7 +67,7 @@ extension Degrees {
         return deg.truncatingRemainder(dividingBy: 360)
     }
     
-    var reverse: Degrees {
+    public var reverse: Degrees {
         (self + 180).truncatingRemainder(dividingBy: 360)
     }
     
@@ -79,7 +79,7 @@ extension Degrees {
     ///   - B: The second azimuth to be compared.
     ///   - forceDirection: If left as nil, will return difference in range [-180, +180). Else, it will guarantee a positive value (right turns) or a negative value (left turns).
     /// - Returns: Difference between the two azimuths, in the appropriate range.
-    func difference(with B: Degrees, forceDirection: Direction? = nil) -> Degrees {
+    public func difference(with B: Degrees, forceDirection: Direction? = nil) -> Degrees {
         var diff: Degrees = self - B
         switch forceDirection {
         case .none:
